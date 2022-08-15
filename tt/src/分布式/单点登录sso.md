@@ -1,0 +1,2 @@
+saml和oauth都是sso（单点登录）协议
+但oauth只有授权没有认证
