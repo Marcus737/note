@@ -1,36 +1,25 @@
 package test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Solution {
-    int N = 510;
-    List<Integer>[] t = new List[N];
-    public List<List<Integer>> groupThePeople(int[] groupSizes) {
-        List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < groupSizes.length; i++) {
-            int v = groupSizes[i];
-            if (t[v] == null) {
-                t[v] = new ArrayList<>();
-                res.add(t[v]);
-            }
-            t[v].add(i);
+    int N = (int) (1e6 + 10);
+    int[] a = new int[N];
+
+    {
+        Arrays.fill(a, Integer.MAX_VALUE);
+        a[0] = 0;
+        for (int i = 0; i < N - 1; i++) {
+            a[i + 1] = Math.min(a[i + 1], a[i] + 1);
+            if (i * 2 < N) a[i * 2] = Math.min(a[i * 2], a[i] + 1);
         }
-        for (List<Integer> list : res) {
-            while (list.size() > list.get(0)){
-                List<Integer> tl = new ArrayList<>();
-                for (int i = 0; i < list.size(); i++) {
-                    tl.add(list.remove(0));
-                }
-                res.add(tl);
-            }
-        }
-        return res;
+    }
+
+    public int numberOfSteps(int num) {
+        return a[num];
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{3,3,3,3,3,1,3};
-        new Solution().groupThePeople(a);
+        new Solution().numberOfSteps(10);
     }
 }
