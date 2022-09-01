@@ -14,5 +14,6 @@
 
 exec -a "java($(cd `dirname $0`; pwd))" $JAVA_HOME/bin/java -server -Xmx256m -XX:MaxDirectMemorySize=256M -verbose:gc -Djava.awt.headless=true -classpath .:$CLASSPATH:../lib/*:../serverLib/*:centerServer.jar com.icefire.center.CenterServer >> stdout.log 2>&1 &
 
+
 # $! 查询并保存最近运行的进程的pid
 echo $! > centerServer.pid

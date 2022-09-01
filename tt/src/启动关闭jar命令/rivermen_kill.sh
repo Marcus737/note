@@ -43,6 +43,6 @@ stop_program() {
     return 0
 }
 # 先从文件读入pid
-pid=`cat centerServer.pid`
+pid=`cat RivermenServer.pid`
 # 调用方法，传入pid $1 是第一个参数， 默认执行kill -15 pid
 stop_program $pid
