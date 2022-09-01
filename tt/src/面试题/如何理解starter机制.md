@@ -1,0 +1,3 @@
+往常使用spring结合其他框架的时候，需要自定义xml文件或java文件自定义bean，这样较麻烦。
+改进后，使用配置类来做这个事情，只需要把配置类放在/META-INF/spring.factories里即可。spring回来这里扫描并加载bean到ioc容器
+starter免去手写配置的过程

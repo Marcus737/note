@@ -1,0 +1,10 @@
+1. 请求发送至DispatcherServlet
+2. DispatcherServlet调用HandlerMapping映射处理器
+3. 映射处理器找到具体的处理器，生处理器及处理拦截器一并返回给DispatcherServlet
+4. DispatcherServlet调用HandlerAdapter处理器适配器
+5. HandlerAdapter经过具体的处理器（controller）
+6. 将controller返回ModelAndView的结果返回给DispatcherServlet
+7. DispatcherServlet将结果交给ViewResolver视图解析器
+8. 视图解析器返回对应的view
+9. DispatcherServlet对view进行渲染（填充数据）
+10.响应用户

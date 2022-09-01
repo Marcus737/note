@@ -1,0 +1,3 @@
+1.springboot启动器会创建一个spring容器
+2.会利用@CondinonalOnClass来判断当前classpath是否存在tomcat依赖，如果存在则生成一个启动tomcat的bean
+3.spring容器创建完之后，就会获取tomcat启动的bean，并创建tomcat对象，绑定端口等，然后启动tomcat
