@@ -1,0 +1,4 @@
+- zookeeper通过临时节点和watch来实现注册中心的服务注册与发现
+- 数据存在内存中
+- 采用nio，性能较高
+- 可用性不搞，zookeeper侧重CP，数据不一致时会不可用（可用redis， eureka， nacos代替）

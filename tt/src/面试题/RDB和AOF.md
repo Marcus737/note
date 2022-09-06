@@ -7,6 +7,15 @@ Redis DataBase。
 - 性能好，fork了一个进程完成写操作，不影响主进程
 ## 缺点
 - 保障性低，若redis在时间间隔内发送故障，那么数据就会丢失
+## 触发
+### 手动触发
+- save 阻塞直至rdb完成
+- bgsave fork进程进行rdb操作，只在fork时暂停一下，不阻塞
+### 自动触发
+- save m n 在m秒内有n个键发送改变
+- flashall 清空所有数据前进行rdb操作
+- 主从同步
+
 
 # AOF
 Append Only File
@@ -21,4 +30,4 @@ Append Only File
 
 # 对比
 对数据安全要求高就用AOF。对性能要求高就用RDB.
-R若两个都开启，优先AOF
+若两个都开启，优先AOF
