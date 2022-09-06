@@ -5,4 +5,4 @@
 # 隔离性
 隔离性由MVCC保证
 # 持久性
-由内存+redo log保证，mysql修改数据的同时在内存和redo log记录这次操作，宕机的时候可以重redolog回复
+由内存+redo log保证，mysql修改数据的同时在内存和redo log记录这次操作，宕机的时候可以重redolog恢复

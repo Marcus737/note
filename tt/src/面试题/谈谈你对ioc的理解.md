@@ -1,0 +1,7 @@
+# ioc
+首先是IOC容器，ioc容器帮我们管理我们对象，我们不需要手动创建对象，对象的生命周期由ioc管理。简化使用，降低编码复杂度。
+其次是依赖注入，将对象属性注入的具体的对象中，，可通过autowired注解实现。
+容器：容器是存放对象的，使用map结存储对象。spring中存对象一般有三级缓存，singletonObjects存放完整对象，earlySingletonObjects存放半成品对象，
+singletonFactory存放lambda表达式和对象名称，整个bean的生命周期从创建到销毁，各个环节都是容器帮我们控制的
+spring中所有的bean都是通过反射的，constructor，newInstance，在整个流程中还包含很多扩展点，比如由两个非常最重要的接口BeanFactoryPostProcessor
+和BeanPostProcessor，用来实现扩展功能。aop是在ioc基础上的一个扩展实现，是通过BeanPostProcessor实现的。

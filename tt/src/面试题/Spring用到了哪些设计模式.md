@@ -6,9 +6,9 @@
 # 原型模式
 - PrototypeTargetSource
 
-# 单里模式
+# 单例模式
  - SingletonTargetSource
-
+ - spring中的bean都是单例模式
 # 构建器模式
 BeanDefinitionBuilder
 

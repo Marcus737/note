@@ -1,7 +1,9 @@
 1. 推断构造方法
-2. 实例化
-3. 填充属性，也就是依赖注入
-4. 处理Aware回调
-5. 初始化前，处理@PostConstruct注解
-6. 初始化，处理InitializingBean接口
-7. 初始化后，进行AOP
+2. 实例化对象，在源码中有个createBeanInstance的方法是专门来生成对象的
+3. 填充属性，通过populateBean方法来完成对象属性的填充，也就是依赖注入
+4. 处理Aware回调，向bean对象中设置容器数据线，会调用invokeAwareMethods方法来将容器对象设置带具体的bean对象
+5. 初始化前，处理@PostConstruct注解。调用BeanPostProcessor中的前置方法来进行bean对象的扩展工作，ApplicationContextPostProcessor，EmbedValueResolver等对象
+6. 初始化，处理InitializingBean接口。调用invokeInitMethods方法来初始化方法的调用，在此方法处理过程中，需要判断当前bean对象是否实现了InitializingBean接口，如果实现了调用afterPropertiesSet方法来最后设置bean对象
+7. 初始化后，进行AOP。调用BeanPostProcessor的后置处理放啊，完成对Bean对象的后置处理工作，aop在此实现的，实现的接口名字叫AbstractAutoProxyCreator
+8. 通过getBean的方式去进行对象的获取后使用
+9. 当对象使用完之后，容器在关闭的时候，会销毁对象。首先会判断是否实现了DisposableBean接口。然后去调用destroyMethod方法
