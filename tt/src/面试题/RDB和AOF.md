@@ -12,7 +12,7 @@ Redis DataBase。
 - save 阻塞直至rdb完成
 - bgsave fork进程进行rdb操作，只在fork时暂停一下，不阻塞
 ### 自动触发
-- save m n 在m秒内有n个键发送改变
+- save m n 在m秒内有n个键发生改变
 - flashall 清空所有数据前进行rdb操作
 - 主从同步
 
