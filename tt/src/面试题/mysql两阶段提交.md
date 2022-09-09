@@ -1,0 +1,1 @@
+两个阶段redolog prepare和redolog commit。作用是崩溃后的保障数据一致性。innodb修改数据时，会先把数据和事务id写入redo log并标记为prepare,然后再把数据和事务id写入bin log,最后redo log进行comiit。若在prepare前崩溃，redolog和undolog都没有记录，数据一致。若在写bin log前崩溃，恢复后redo log拿着事务id去bin log找，找不到，进行回滚。若在commit前崩溃，恢复后拿事务id去binlog找，找到了，提交。这样始终保持数据一致性。

@@ -9,11 +9,12 @@ https://baijiahao.baidu.com/s?id=1719749867568105953&wfr=spider&for=pc
 是一种解决读写问题的无锁并发实现，为事务分配单向增长的时间戳，为每个修改保存一个版本，版本与事务时间戳关联，读操作只读该事务开始前的数据库的快照
 不能解决丢失更新问题
 # 原理
-依赖3个隐藏字段，undo日志，read view和可见性算法来实现
+依赖3个隐藏字段，undolog ，read view和可见性算法来实现
 ## 三个隐藏字段
-- DB_TRX_ID 记录最近更新该行的事务id，6字节
-- DB_ROLL_PTR 指向回滚段的指针，7字节。
-- DB_ROW_ID 行标识（主键id）
+- DB_TRX_ID 记录最近更新该行的事务id
+- DB_ROLL_PTR 指向回滚数据的指针，指向上一个版本，与undolog配合
+- DB_ROW_ID 隐藏的主键，若表没有主键，innodb会自动生成6字节的row_id
+
 
 ## undo日志
 DB_ROLL_PTR指针形成的链表
@@ -25,5 +26,10 @@ DB_ROLL_PTR指针形成的链表
 ### 读视图的关键3个变量
 - trx_list 当前系统活跃的事务id列表
 - up_limit_id 活跃事务列表中最小的事务id
-- low_limit_id 当前系统未分配的下一个事务id
+- low_limit_id 当前read view生产时刻系统未分配的下一个事务id
 ![img_3.png](img_3.png)
+
+# RC(READ COMMITTED)和RR(REPEATABLE READ)在Innodb下快照读有什么区别？
+在RC下，每个快照读都会生产最新的read view。在RR下，同一个事务的第一个快照读才会生产read view，其后续快照读都是用同一个read view
+
+

@@ -1,0 +1,4 @@
+- 使用zk的分布式锁，分布式配置及统一命名的分布式协调方案
+- broker集群的controller选择是争夺zk临时节点获得的
+- brokerId自增通过zk的version实现全局唯一
+- 
