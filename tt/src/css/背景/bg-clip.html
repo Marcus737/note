@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>蝴蝶教程（jc2182.com）</title>
+    <style>
+        #example1 {
+            border: 10px dotted black;
+            padding: 15px;
+            background: lightblue;
+            background-clip: border-box;
+        }
+
+        #example2 {
+            border: 10px dotted black;
+            padding: 15px;
+            background: lightblue;
+            background-clip: padding-box;
+        }
+
+        #example3 {
+            border: 10px dotted black;
+            padding: 15px;
+            background: lightblue;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+
+<h1>  background-clip 属性</h1>
+
+<p>background-clip属性定义背景在元素中应该延伸的距离。</p>
+
+<p>background-clip: border-box (这是默认的):</p>
+<div id="example1">
+    <p>背景延伸到边界后面。</p>
+</div>
+
+<p>background-clip: padding-box:</p>
+<div id="example2">
+    <p>背景延伸到边框的内边缘。</p>
+</div>
+
+<p>background-clip: content-box:</p>
+<div id="example3">
+    <p>背景延伸到内容框的边缘。</p>
+</div>
+
+<p> <strong>注意：</strong> Internet Explorer 8及更早版本不支持background-clip属性。</p>
+
+</body>
+</html>

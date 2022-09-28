@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>蝴蝶教程（jc2182.com）</title>
+    <style>
+        #example1 {
+            border: 10px double black;
+            padding: 25px;
+            background: url("../small.png");
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+        }
+
+        #example2 {
+            border: 10px double black;
+            padding: 25px;
+            background: url("../small.png");
+            background-repeat: no-repeat;
+            background-origin: border-box;
+        }
+
+        #example3 {
+            border: 10px double black;
+            padding: 25px;
+            background: url("../small.png");
+            background-repeat: no-repeat;
+            background-origin: content-box;
+        }
+    </style>
+</head>
+<body>
+
+<h2>background-origin: padding-box (默认):</h2>
+<div id="example1">
+    <h2>Hello World</h2>
+    <p>背景图像从填充边缘的左上角开始。</p>
+</div>
+
+<h2>background-origin: border-box:</h2>
+<div id="example2">
+    <h2>Hello World</h2>
+    <p>背景图像从边框的左上角开始。</p>
+</div>
+
+<h2>background-origin: content-box:</h2>
+<div id="example3">
+    <h2>Hello World</h2>
+    <p>背景图像从内容的左上角开始。</p>
+</div>
+
+</body>
+</html>
